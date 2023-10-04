@@ -15,10 +15,8 @@ class Registration extends Component
 
     public function save()
     {
-        User::create(
-            $this->form->validate()
-        );
-
+        User::create($this->form->validate());
+        
         return view('livewire.congratulation')
             ->layout('components.layouts.registration');
     }
