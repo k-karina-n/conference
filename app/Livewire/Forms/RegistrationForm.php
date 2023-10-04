@@ -13,7 +13,7 @@ class RegistrationForm extends Form
     #[Rule('required|string|max:255')]
     public $lastName;
 
-    #[Rule('required|max:15')]
+    #[Rule('required|max:18')]
     public $phone;
 
     #[Rule('required|email|unique:users')]
@@ -31,6 +31,6 @@ class RegistrationForm extends Form
     #[Rule('required|max:1000')]
     public $description;
 
-    #[Rule('required')]
+    #[Rule('required|after_or_equal:today')]
     public $date;
 }
