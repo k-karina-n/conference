@@ -3,27 +3,20 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\User;
 use Livewire\WithFileUploads;
+use App\Livewire\Forms\RegistrationForm;
+use App\Models\User;
 
 class Registration extends Component
 {
     use WithFileUploads;
 
-    public $firstName;
-    public $lastName;
-    public $phone;
-    public $email;
-    public $country;
-    public $photo;
-    public $title;
-    public $description;
-    public $date;
+    public RegistrationForm $form;
 
     public function save()
     {
         User::create(
-            $this->only(['first_name', 'last_name', 'phone', 'email', 'country', 'photo', 'title', 'description', 'date'])
+            $this->form->validate()
         );
 
         return view('livewire.congratulation')
