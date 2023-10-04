@@ -8,7 +8,7 @@ $buttonClass = "mt-6 w-full grid inline-flex justify-center items-center gap-x-3
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
             <x-input label="first Name" data="firstName" />
             <x-input label="last Name" data="lastName" />
-            <x-input label="phone" data="phone" type="phone" x-mask="+99 (999) 999-9999" x-model="phone"/>
+            <x-input label="phone" data="phone" type="phone" /> <!--  x-mask="+99 (999) 999-9999"  -->
             <x-input label="email" data="email" type="email" />
             <x-input label="country" data="country"></x-input>
             <x-input label="profile photo" data="photo" type="file"></x-input>

@@ -5,7 +5,6 @@ namespace App\Livewire;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Livewire\Forms\RegistrationForm;
-use App\Models\User;
 
 class Registration extends Component
 {
@@ -15,10 +14,9 @@ class Registration extends Component
 
     public function save()
     {
-        User::create($this->form->validate());
-        
-        return view('livewire.congratulation')
-            ->layout('components.layouts.registration');
+        $this->form->store();
+
+        return redirect()->to('/registration-form');
     }
 
     public function render()
