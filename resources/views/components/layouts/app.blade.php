@@ -14,8 +14,8 @@
     @vite(['resources/css/app.css'])
 </head>
 
-<body class="bg-pink-200">
-    start
+<body>
+    {{ $slot }}
     @livewireScriptConfig
 </body>
 
