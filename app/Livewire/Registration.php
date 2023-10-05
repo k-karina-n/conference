@@ -34,7 +34,6 @@ class Registration extends Component
         ]);
 
         return redirect()->to('/registration-form');
-
     }
 
     public function validateFirstStep()

@@ -22,7 +22,7 @@ $buttonClass = "mt-6 w-full grid inline-flex justify-center items-center gap-x-3
         <x-input label="description" data="description" />
         <x-input label="date" data="date" type="date" min="{{ date('Y-m-d') }}" model="secondStep"/>
 
-        <button type="button" class="{{ $buttonClass }}">Previous Step</button>
+        <button type="button" wire:click="$set('firstStepVisible', 'false')" class="{{ $buttonClass }}">Previous Step</button>
         <button type="submit" class="{{ $buttonClass }}">Submit</button>
     </div>
 </form>
