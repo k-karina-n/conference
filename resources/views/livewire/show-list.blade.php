@@ -1,4 +1,4 @@
-<div class="mx-auto flex max-w-[85rem] flex-col px-4">
+<div class="my-8 mx-auto flex max-w-[85rem] flex-col px-4">
     <div class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
 
         <div class="grid gap-3 border-b border-gray-200 px-6 py-4 md:flex md:items-center md:justify-between">

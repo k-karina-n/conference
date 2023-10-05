@@ -43,7 +43,7 @@ class Registration extends Component
      *
      * @var bool The success flag.
      */
-    public $registrationSuccess = true;
+    public $registrationSuccess = false;
 
     /**
      * The message to display to the user.
@@ -59,8 +59,7 @@ class Registration extends Component
      */
     public function render(): View
     {
-        return view('livewire.registration')
-            ->layout('components.layouts.registration');
+        return view('livewire.registration-form');
     }
 
     /**

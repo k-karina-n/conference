@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <x-header />
     {{ $slot }}
     @livewireScriptConfig
 </body>
