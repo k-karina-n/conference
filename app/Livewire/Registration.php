@@ -14,8 +14,7 @@ class Registration extends Component
 
     public FirstStepForm $firstStep;
     public SecondStepForm $secondStep;
-    
-    public $header = 'Register for Conference Below';
+
     public $registrationSuccess = false;
     public $firstStepVisible = true;
 
@@ -41,9 +40,6 @@ class Registration extends Component
     public function render()
     {
         return view('livewire.registration')
-            ->layout('components.layouts.registration', [
-                'header' => $this->header,
-            ]
-        );
+            ->layout('components.layouts.registration');
     }
 }
