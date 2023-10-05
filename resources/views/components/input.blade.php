@@ -5,7 +5,7 @@ $class = "py-3 px-4 block w-full rounded-md border border-gray-200 rounded-md te
 <div class="mt-2 space-y-2">
     <label for="{{ $data }}" class="flex text-sm text-gray-700 font-medium capitalize">{{ $label }}</label>
     @if($data == 'country')
-    <select name="country" wire:model.live="form.{{ $data }}" class="{{ $class }} bg-white">
+    <select name="country" wire:model="firstStep.country" class="{{ $class }} bg-white">
         <option>United Kingdom</option>
         <option>Germany</option>
         <option>Poland</option>
@@ -15,10 +15,11 @@ $class = "py-3 px-4 block w-full rounded-md border border-gray-200 rounded-md te
         <option>Ukraine</option>
     </select>
     @elseif($data == 'description')
-    <textarea name="description" type="text" wire:model.live="form.{{ $data }}" class="{{ $class }}" rows="3" placeholder="Description (up to 1000 characters)" maxlength="1000"></textarea>
+    <textarea name="description" type="text" wire:model="secondStep.description" class="{{ $class }}" rows="3" placeholder="Description (up to 1000 characters)" maxlength="1000"></textarea>
     @else
-    <input name="{{ $data }}" type="{{ $type ?? 'text' }}" wire:model.live="form.{{ $data }}" class="{{ $class }}" {{ $attributes->merge() }}>
+    <input name="{{ $data }}" type="{{ $type ?? 'text' }}" wire:model="{{ $model ?? 'firstStep' }}.{{ $data }}" class="{{ $class }}" {{ $attributes->merge() }}>
     @endif
 
-    @error("form.$data")<p class="text-pink-600 text-sm">{{ $message }}</p>@enderror 
+    @error("firstStep.$data")<p class="text-pink-600 text-sm">{{ $message }}</p>@enderror
+    @error("secondStep.$data")<p class="text-pink-600 text-sm">{{ $message }}</p>@enderror
 </div>

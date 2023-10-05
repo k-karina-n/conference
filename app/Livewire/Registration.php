@@ -4,19 +4,35 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use App\Livewire\Forms\RegistrationForm;
+use App\Livewire\Forms\FirstStepForm;
+use App\Livewire\Forms\SecondStepForm;
+use App\Models\User;
 
 class Registration extends Component
 {
     use WithFileUploads;
 
-    public RegistrationForm $form;
+    public FirstStepForm $firstStep;
+    public SecondStepForm $secondStep;
 
     public function save()
     {
-        $this->form->store();
+        $this->firstStep->validate();
+        $this->secondStep->validate();
 
         return redirect()->to('/registration-form');
+
+        User::create([
+            'first_name' => $this->firstName,
+            'last_name' => $this->lastName,
+            'phone' => $this->phone,
+            'email' => $this->email,
+            'country' => $this->country,
+            'photo' => $this->photo,
+            'title' => $this->title,
+            'description' => $this->description,
+            'date' => $this->date
+        ]);
     }
 
     public function render()

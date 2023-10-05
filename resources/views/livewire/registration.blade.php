@@ -18,9 +18,9 @@ $buttonClass = "mt-6 w-full grid inline-flex justify-center items-center gap-x-3
     </div>
 
     <div x-show="currentStep === 'second'" x-transition:enter="transition duration-200 transform ease-out" x-transition:enter-start="scale-75" x-transition:leave="transition duration-100 transform ease-in" x-transition:leave-end="opacity-0 scale-90">
-        <x-input label="title" data="title" />
+        <x-input label="title" data="title" model="secondStep"/>
         <x-input label="description" data="description" />
-        <x-input label="date" data="date" type="date" min="{{ date('Y-m-d') }}" />
+        <x-input label="date" data="date" type="date" min="{{ date('Y-m-d') }}" model="secondStep"/>
 
         <button type="button" @click="currentStep = 'first'" class="{{ $buttonClass }}">Previous Step</button>
         <button type="submit" class="{{ $buttonClass }}">Submit</button>
