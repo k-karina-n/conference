@@ -7,21 +7,21 @@ use Livewire\Form;
 
 class FirstStepForm extends Form
 {
-    #[Rule('required|string|max:255')]
+    #[Rule('required|string|max:20', attribute: 'First Name')]
     public $first_name;
 
-    #[Rule('required|string|max:255')]
+    #[Rule('required|string|max:20', attribute: 'Second Name')]
     public $last_name;
 
-    #[Rule('required|max:18')]
+    #[Rule('required|max:18', attribute: 'Phone')]
     public $phone;
 
-    #[Rule('required|email|unique:users,email')]
+    #[Rule('required|email|unique:users,email', attribute: 'Email')]
     public $email;
 
-    #[Rule('required')]
+    #[Rule('required', attribute: 'Country')]
     public $country;
 
-    #[Rule('required')]
+    #[Rule('required', attribute: 'Photo')]
     public $photo;
 }
