@@ -7,6 +7,7 @@ use Livewire\WithFileUploads;
 use App\Livewire\Forms\FirstStepForm;
 use App\Livewire\Forms\SecondStepForm;
 use App\Models\User;
+use Illuminate\View\View;
 
 class Registration extends Component
 {
@@ -22,27 +23,27 @@ class Registration extends Component
 
     public $message;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.registration')
             ->layout('components.layouts.registration');
     }
 
-    public function validateFirstStep()
+    public function validateFirstStep(): bool
     {
         $this->firstStep->validate();
 
-        $this->firstStepVisible = false;
+        return $this->firstStepVisible = false;
     }
 
-    public function validateSecondStep()
+    public function validateSecondStep(): bool
     {
         $this->secondStep->validate();
 
-        $this->save();
+        return $this->save();
     }
 
-    public function save()
+    public function save(): bool
     {
         User::create(array_merge(
             $this->firstStep->all(),
@@ -51,13 +52,13 @@ class Registration extends Component
 
         $this->getMessage();
 
-        $this->registrationSuccess = true;
+        return $this->registrationSuccess = true;
     }
 
-    public function getMessage()
+    public function getMessage(): string
     {
         $title = $this->secondStep->title;
 
-        $this->message = "Hey, I'm speaking on $title! To know more about it, visit conference.com";
+        return $this->message = "Hey, I'm speaking on $title! To know more about it, visit conference.com";
     }
 }
