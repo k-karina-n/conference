@@ -16,21 +16,24 @@ class Registration extends Component
     public SecondStepForm $secondStep;
     
     public $header = 'Register for Conference Below';
+    public $registrationSuccess = false;
     public $firstStepVisible = true;
 
     public function save()
     {
-        //$this->secondStep->validate();
+        $this->secondStep->validate();
 
-        /* User::create(array_merge(
+        User::create(array_merge(
             $this->firstStep->all(),
             $this->secondStep->all()
-        )); */
+        ));
+
+        $this->registrationSuccess = true;
     }
 
     public function validateFirstStep()
     {
-        //$this->firstStep->validate();
+        $this->firstStep->validate();
 
         $this->firstStepVisible = false;
     }
