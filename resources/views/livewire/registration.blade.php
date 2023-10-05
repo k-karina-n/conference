@@ -45,6 +45,6 @@ $buttonClass = "mt-6 w-full grid inline-flex justify-center items-center gap-x-3
 
         <h3 class="text-xl font-bold text-gray-900">OR</h3>
 
-        <button type="button" class="{{ $buttonClass }}">View the list of speakers</button>
+        <button type="button" wire:click="showList" class="{{ $buttonClass }}">View the list of speakers</button>
     </div>
 </div>

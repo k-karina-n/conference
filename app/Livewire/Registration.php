@@ -7,6 +7,7 @@ use Livewire\WithFileUploads;
 use App\Livewire\Forms\FirstStepForm;
 use App\Livewire\Forms\SecondStepForm;
 use App\Models\User;
+use Livewire\Features\SupportRedirects\Redirector;
 use Illuminate\View\View;
 
 class Registration extends Component
@@ -42,7 +43,7 @@ class Registration extends Component
      *
      * @var bool The success flag.
      */
-    public $registrationSuccess = false;
+    public $registrationSuccess = true;
 
     /**
      * The message to display to the user.
@@ -115,5 +116,15 @@ class Registration extends Component
         $title = $this->secondStep->title;
 
         return $this->message = "Hey, I'm speaking on $title! To know more about it, visit conference.com";
+    }
+
+    /**
+     * Redirect user to the page with a list of speakers.
+     * 
+     * @return Livewire\Features\SupportRedirects\Redirector.
+     */
+    public function showList(): Redirector
+    {
+        return redirect('/list');
     }
 }
