@@ -22,17 +22,10 @@ class Registration extends Component
 
     public $message;
 
-    public function save()
+    public function render()
     {
-        $this->secondStep->validate();
-
-        User::create(array_merge(
-            $this->firstStep->all(),
-            $this->secondStep->all()
-        ));
-
-        $this->getMessage();
-        $this->registrationSuccess = true;
+        return view('livewire.registration')
+            ->layout('components.layouts.registration');
     }
 
     public function validateFirstStep()
@@ -42,16 +35,29 @@ class Registration extends Component
         $this->firstStepVisible = false;
     }
 
+    public function validateSecondStep()
+    {
+        $this->secondStep->validate();
+
+        $this->save();
+    }
+
+    public function save()
+    {
+        User::create(array_merge(
+            $this->firstStep->all(),
+            $this->secondStep->all()
+        ));
+
+        $this->getMessage();
+
+        $this->registrationSuccess = true;
+    }
+
     public function getMessage()
     {
         $title = $this->secondStep->title;
 
         $this->message = "Hey, I'm speaking on $title! To know more about it, visit conference.com";
-    }
-
-    public function render()
-    {
-        return view('livewire.registration')
-            ->layout('components.layouts.registration');
     }
 }

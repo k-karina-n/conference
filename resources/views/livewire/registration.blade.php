@@ -3,7 +3,7 @@ $buttonClass = "mt-6 w-full grid inline-flex justify-center items-center gap-x-3
 @endphp
 
 <div>
-    <form wire:submit="save" enctype="multipart/form-data" x-show="!$wire.get('registrationSuccess')">
+    <form wire:submit="validateSecondStep" enctype="multipart/form-data" x-show="!$wire.get('registrationSuccess')">
         @csrf
         <div x-show="$wire.get('firstStepVisible')" x-transition:enter="transition duration-200 transform ease-out" x-transition:enter-start="scale-75" x-transition:leave="transition duration-100 transform ease-in" x-transition:leave-end="opacity-0 scale-90">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
