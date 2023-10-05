@@ -15,9 +15,10 @@ class Registration extends Component
     public FirstStepForm $firstStep;
     public SecondStepForm $secondStep;
 
+    public $firstStepVisible = true;
+
     public function save()
     {
-        $this->firstStep->validate();
         $this->secondStep->validate();
 
         return redirect()->to('/registration-form');
@@ -33,6 +34,13 @@ class Registration extends Component
             'description' => $this->description,
             'date' => $this->date
         ]);
+    }
+
+    public function validateFirstStep()
+    {
+        $this->firstStep->validate();
+
+        $this->firstStepVisible = false;
     }
 
     public function render()
