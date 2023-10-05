@@ -21,17 +21,10 @@ class Registration extends Component
     {
         $this->secondStep->validate();
 
-        User::create([
-            'first_name' => $this->firstName,
-            'last_name' => $this->lastName,
-            'phone' => $this->phone,
-            'email' => $this->email,
-            'country' => $this->country,
-            'photo' => $this->photo,
-            'title' => $this->title,
-            'description' => $this->description,
-            'date' => $this->date
-        ]);
+        User::create(array_merge(
+            $this->firstStep->all(),
+            $this->secondStep->all()
+        ));
 
         return redirect()->to('/registration-form');
     }
