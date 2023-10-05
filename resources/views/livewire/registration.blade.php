@@ -28,7 +28,23 @@ $buttonClass = "mt-6 w-full grid inline-flex justify-center items-center gap-x-3
         </div>
     </form>
 
-    <div x-show="$wire.get('registrationSuccess')">
+    <div x-show="$wire.get('registrationSuccess')" class="space-y-2">
+        <h3 class="text-xl font-bold text-gray-900">Share on social media if you want</h3>
 
+        <p class="text-sm text-gray-700 font-medium">{{ $message }}</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 lg:gap-x-6">
+            <a href="http://twitter.com/share?text={{ $message }}&hashtags=conference,speaker,mypublicspeech" target="_blank" class="{{ $buttonClass }}">
+                Twitter
+            </a>
+
+            <a href="http://www.facebook.com/sharer.php?u=http://localhost:8888/list{{ $message }}" target="_blank" class="{{ $buttonClass }}">
+                Facebook
+            </a>
+        </div>
+
+        <h3 class="text-xl font-bold text-gray-900">OR</h3>
+
+        <button type="button" class="{{ $buttonClass }}">View the list of speakers</button>
     </div>
 </div>

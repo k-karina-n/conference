@@ -13,10 +13,14 @@ class Registration extends Component
     use WithFileUploads;
 
     public FirstStepForm $firstStep;
+
     public SecondStepForm $secondStep;
 
-    public $registrationSuccess = false;
     public $firstStepVisible = true;
+
+    public $registrationSuccess = false;
+
+    public $message;
 
     public function save()
     {
@@ -27,6 +31,7 @@ class Registration extends Component
             $this->secondStep->all()
         ));
 
+        $this->getMessage();
         $this->registrationSuccess = true;
     }
 
@@ -35,6 +40,13 @@ class Registration extends Component
         $this->firstStep->validate();
 
         $this->firstStepVisible = false;
+    }
+
+    public function getMessage()
+    {
+        $title = $this->secondStep->title;
+
+        $this->message = "Hey, I'm speaking on $title! To know more about it, visit conference.com";
     }
 
     public function render()
