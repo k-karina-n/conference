@@ -14,24 +14,23 @@ class Registration extends Component
 
     public FirstStepForm $firstStep;
     public SecondStepForm $secondStep;
-
+    
+    public $header = 'Register for Conference Below';
     public $firstStepVisible = true;
 
     public function save()
     {
-        $this->secondStep->validate();
+        //$this->secondStep->validate();
 
-        User::create(array_merge(
+        /* User::create(array_merge(
             $this->firstStep->all(),
             $this->secondStep->all()
-        ));
-
-        return redirect()->to('/registration-form');
+        )); */
     }
 
     public function validateFirstStep()
     {
-        $this->firstStep->validate();
+        //$this->firstStep->validate();
 
         $this->firstStepVisible = false;
     }
@@ -39,6 +38,9 @@ class Registration extends Component
     public function render()
     {
         return view('livewire.registration')
-            ->layout('components.layouts.registration');
+            ->layout('components.layouts.registration', [
+                'header' => $this->header,
+            ]
+        );
     }
 }

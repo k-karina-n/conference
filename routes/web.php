@@ -14,4 +14,4 @@ use App\Livewire\Registration;
 |
 */
 
-Route::get('/registration-form', Registration::class);
+Route::get('/registration', Registration::class);
