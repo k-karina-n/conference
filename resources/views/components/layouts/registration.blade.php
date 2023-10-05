@@ -1,5 +1,5 @@
 <x-layouts.app>
-    <header class="bg-white shadow text-center mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
+    <header class="bg-white shadow text-center mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl font-bold tracking-tight text-gray-900">Register for conference</h1>
     </header>
 
