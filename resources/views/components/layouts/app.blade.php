@@ -15,7 +15,14 @@
 </head>
 
 <body>
-    <x-header />
+    <nav class="bg-gray-800">
+        <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+            <div class="ml-10 flex items-baseline space-x-4">
+                <x-nav-item route="registration">Registration</x-nav-item>
+                <x-nav-item route="list">List</x-nav-item>
+            </div>
+        </div>
+    </nav>
     {{ $slot }}
     @livewireScriptConfig
 </body>

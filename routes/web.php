@@ -15,5 +15,5 @@ use App\Livewire\ShowList;
 |
 */
 
-Route::get('/registration', Registration::class);
-Route::get('/list', ShowList::class);
+Route::get('/registration', Registration::class)->name('registration');
+Route::get('/list', ShowList::class)->name('list');
