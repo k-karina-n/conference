@@ -93,6 +93,8 @@ class Registration extends Component
      */
     public function save(): bool
     {
+        $this->firstStep->storePhoto();
+
         User::create(array_merge(
             $this->firstStep->all(),
             $this->secondStep->all()

@@ -24,4 +24,13 @@ class FirstStepForm extends Form
 
     #[Rule('required', attribute: 'Photo')]
     public $photo;
+
+    public function storePhoto()
+    {
+        $name = $this->photo->getClientOriginalName();
+
+        $this->photo->storeAs('photos', $name, 'public');
+
+        $this->photo = $name;
+    }
 }

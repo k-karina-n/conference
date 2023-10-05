@@ -17,7 +17,7 @@
                 @foreach ($users as $user)
                     <tr>
                         <x-table-item>
-                            <img src="/photo/{{ $user->photo }}" alt="photo" class="h-12 w-12 rounded-md">
+                            <img src="/photos/{{ $user->photo }}" alt="photo" class="h-12 w-12 rounded-md">
                         </x-table-item>
 
                         <x-table-item>
