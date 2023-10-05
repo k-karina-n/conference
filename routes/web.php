@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Registration;
+use App\Livewire\ShowList;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +16,4 @@ use App\Livewire\Registration;
 */
 
 Route::get('/registration', Registration::class);
+Route::get('/list', ShowList::class);
