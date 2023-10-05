@@ -21,8 +21,6 @@ class Registration extends Component
     {
         $this->secondStep->validate();
 
-        return redirect()->to('/registration-form');
-
         User::create([
             'first_name' => $this->firstName,
             'last_name' => $this->lastName,
@@ -34,6 +32,9 @@ class Registration extends Component
             'description' => $this->description,
             'date' => $this->date
         ]);
+
+        return redirect()->to('/registration-form');
+
     }
 
     public function validateFirstStep()

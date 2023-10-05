@@ -8,10 +8,10 @@ use Livewire\Form;
 class FirstStepForm extends Form
 {
     #[Rule('required|string|max:255')]
-    public $firstName;
+    public $first_name;
 
     #[Rule('required|string|max:255')]
-    public $lastName;
+    public $last_name;
 
     #[Rule('required|max:18')]
     public $phone;

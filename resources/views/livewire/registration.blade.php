@@ -6,8 +6,8 @@ $buttonClass = "mt-6 w-full grid inline-flex justify-center items-center gap-x-3
     @csrf
     <div x-show="$wire.get('firstStepVisible')" x-transition:enter="transition duration-200 transform ease-out" x-transition:enter-start="scale-75" x-transition:leave="transition duration-100 transform ease-in" x-transition:leave-end="opacity-0 scale-90">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
-            <x-input label="first Name" data="firstName" />
-            <x-input label="last Name" data="lastName" />
+            <x-input label="first name" data="first_name" />
+            <x-input label="last name" data="last_name" />
             <x-input label="phone" data="phone" type="phone" x-mask="+99 (999) 999-9999" />
             <x-input label="email" data="email" type="email" />
             <x-input label="country" data="country"></x-input>
