@@ -6,23 +6,14 @@
     <section class="mx-auto max-w-xl px-4 py-10 text-center sm:px-6 lg:px-8 lg:py-14">
         <form wire:submit="validateSecondStep" enctype="multipart/form-data" x-show="!$wire.get('registrationSuccess')">
             @csrf
-            <div x-show="$wire.get('firstStepVisible')" class="space-y-6">
-                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-6">
-                    <x-input label="first name" data="first_name" />
-                    <x-input label="last name" data="last_name" />
-                    <x-input label="phone" data="phone" type="phone" x-mask="+99 (999) 999-9999" />
-                    <x-input label="email" data="email" type="email" />
-                    <x-input label="country" data="country"></x-input>
-                    <x-input label="profile photo" data="photo" type="file"></x-input>
-                </div>
+            <div class="space-y-6" x-show="$wire.get('firstStepVisible')">
+                <x-form-step-one />
 
                 <x-button wire:click="validateFirstStep">Next Step</x-button>
             </div>
 
-            <div x-show="!$wire.get('firstStepVisible')" class="space-y-6">
-                <x-input label="title" data="title" model="secondStep" />
-                <x-input label="description" data="description" model="secondStep" />
-                <x-input label="date" data="date" type="date" min="{{ date('Y-m-d') }}" model="secondStep" />
+            <div class="space-y-6" x-show="!$wire.get('firstStepVisible')">
+                <x-form-step-two />
 
                 <x-button wire:click="$set('firstStepVisible', 'false')">Previous Step</x-button>
                 <x-button type="submit">Submit</x-button>

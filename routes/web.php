@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Registration;
 use App\Livewire\ShowList;
 use App\Livewire\AdminAuth;
+use App\Livewire\EditUser;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +19,5 @@ use App\Livewire\AdminAuth;
 
 Route::get('/registration', Registration::class)->name('registration');
 Route::get('/list', ShowList::class)->name('list');
+Route::get('/list/edit-user', EditUser::class);
 Route::get('/admin', AdminAuth::class)->name('admin');

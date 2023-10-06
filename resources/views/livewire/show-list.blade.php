@@ -1,5 +1,5 @@
 <main class="mx-auto my-8 flex max-w-[85rem] flex-col px-4">
-    <div class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
+    <div class="overflow-hidden rounded-xl border border-gray-200 shadow-sm">
 
         <div class="border-b border-gray-200 px-6 py-4 md:flex md:items-center md:justify-between">
             <h2 class="text-xl font-semibold text-gray-800">List of Speakers</h2>
