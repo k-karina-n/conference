@@ -18,9 +18,9 @@ class AdminAuth extends Component
         return view('livewire.admin-auth');
     }
 
-    public function login(): Redirector
+    public function login()
     {
-        return redirect('/list');
+        $this->form->validate();
     }
 
     public function logout(): Redirector
