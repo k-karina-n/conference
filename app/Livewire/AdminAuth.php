@@ -11,8 +11,6 @@ use Illuminate\Http\Request;
 
 class AdminAuth extends Component
 {
-    public $admin = false;
-
     public AdminAuthForm $form;
 
     public function render(): View

@@ -18,7 +18,13 @@
             <div class="ml-10 flex items-baseline space-x-4">
                 <x-nav-item route="registration">Registration</x-nav-item>
                 <x-nav-item route="list">List</x-nav-item>
-                <x-nav-item route="admin">Log in</x-nav-item>
+                <x-nav-item route="admin">
+                    @auth
+                        Log out
+                    @else
+                        Log in
+                    @endauth
+                </x-nav-item>
             </div>
         </div>
     </nav>
