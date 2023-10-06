@@ -3,8 +3,8 @@
 
     <section x-show="!$wire.get('admin')">
         <form wire:submit="login">
-            <x-input label="email" data="email" />
-            <x-input label="password" data="password" type="password" />
+            <x-input label="email" data="email" model="form" />
+            <x-input label="password" data="password" type="password" model="form" />
             <x-button type="submit">Log in</x-button>
         </form>
     </section>

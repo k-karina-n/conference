@@ -25,7 +25,7 @@
                 x-transition:enter-start="scale-75" x-transition:leave="transition duration-100 transform ease-in"
                 x-transition:leave-end="opacity-0 scale-90">
                 <x-input label="title" data="title" model="secondStep" />
-                <x-input label="description" data="description" />
+                <x-input label="description" data="description" model="secondStep" />
                 <x-input label="date" data="date" type="date" min="{{ date('Y-m-d') }}" model="secondStep" />
 
                 <x-button wire:click="$set('firstStepVisible', 'false')">Previous Step</x-button>
