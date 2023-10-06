@@ -50,6 +50,11 @@ vim .env
 php artisan migrate
 ```
 
+**Seed your db** 
+```
+php artisan db:seed
+```
+
 **Install packages and bundle application's assets**
 ```
 npm i
