@@ -1,7 +1,3 @@
-@php
-    $buttonClass = 'mt-6 w-full grid inline-flex justify-center items-center gap-x-3 text-center bg-blue-600 hover:bg-blue-700 border border-transparent text-sm lg:text-base text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4';
-@endphp
-
 <main>
     <h1 class="mx-auto bg-white px-4 py-6 text-center text-3xl font-bold text-gray-900 shadow sm:px-6 lg:px-8">
         Register for conference
@@ -22,7 +18,7 @@
                     <x-input label="profile photo" data="photo" type="file"></x-input>
                 </div>
 
-                <button class="{{ $buttonClass }}" type="button" wire:click="validateFirstStep">Next Step</button>
+                <x-button wire:click="validateFirstStep">Next Step</x-button>
             </div>
 
             <div x-show="!$wire.get('firstStepVisible')" x-transition:enter="transition duration-200 transform ease-out"
@@ -32,10 +28,8 @@
                 <x-input label="description" data="description" />
                 <x-input label="date" data="date" type="date" min="{{ date('Y-m-d') }}" model="secondStep" />
 
-                <button class="{{ $buttonClass }}" type="button"
-                    wire:click="$set('firstStepVisible', 'false')">Previous
-                    Step</button>
-                <button class="{{ $buttonClass }}" type="submit">Submit</button>
+                <x-button wire:click="$set('firstStepVisible', 'false')">Previous Step</x-button>
+                <x-button type="submit">Submit</x-button>
             </div>
         </form>
 
@@ -45,22 +39,13 @@
             <p class="text-sm font-medium text-gray-700">{{ $message }}</p>
 
             <div class="grid grid-cols-1 gap-x-4 sm:grid-cols-2 lg:gap-x-6">
-                <a class="{{ $buttonClass }}"
-                    href="http://twitter.com/share?text={{ $message }}&hashtags=conference,speaker,mypublicspeech"
-                    target="_blank">
-                    Twitter
-                </a>
-
-                <a class="{{ $buttonClass }}"
-                    href="http://www.facebook.com/sharer.php?u=http://localhost:8888/list{{ $message }}"
-                    target="_blank">
-                    Facebook
-                </a>
+                <x-button href="http://twitter.com/share?text=">Twitter</x-button>
+                <x-button href="http://www.facebook.com/sharer.php?u=http://localhost:8888/list">Facebook</x-button>
             </div>
 
             <h3 class="text-xl font-bold text-gray-900">OR</h3>
 
-            <button class="{{ $buttonClass }}" type="button" wire:click="showList">View the list of speakers</button>
+            <x-button wire:click="showList">View the list of speakers</x-button>
         </div>
     </section>
 </main>
