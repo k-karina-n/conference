@@ -19,7 +19,7 @@ $class = "py-3 px-4 block w-full rounded-md border border-gray-200 rounded-md te
     @elseif($data == 'description')
     <textarea name="description" type="text" wire:model="secondStep.description" class="{{ $class }}" rows="3" placeholder="Description (up to 1000 characters)" maxlength="1000"></textarea>
     @else
-    <input name="{{ $data }}" type="{{ $type ?? 'text' }}" wire:model="{{ $model }}.{{ $data }}" class="{{ $class }}" {{ $attributes->merge() }}>
+    <input name="{{ $data }}" type="{{ $type ?? 'text' }}" wire:model.lazy="{{ $model }}.{{ $data }}" class="{{ $class }}" {{ $attributes->merge() }}>
     @endif
 
     @error("$model.$data")<p class="text-pink-600 text-sm">{{ $message }}</p>@enderror
