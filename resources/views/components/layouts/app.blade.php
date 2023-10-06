@@ -7,8 +7,6 @@
 
     <title>Conference</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-
     @livewireStyles
     @vite(['resources/js/app.js'])
     @vite(['resources/css/app.css'])
