@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Registration;
 use App\Livewire\ShowList;
+use App\Livewire\AdminAuth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,4 @@ use App\Livewire\ShowList;
 
 Route::get('/registration', Registration::class)->name('registration');
 Route::get('/list', ShowList::class)->name('list');
+Route::get('/admin', AdminAuth::class)->name('admin');
