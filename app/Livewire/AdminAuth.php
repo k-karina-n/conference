@@ -30,8 +30,13 @@ class AdminAuth extends Component
         return $this->addError('login', 'Please, indicate a valid password');
     }
 
-    public function logout(): Redirector
+    public function logout(Request $request): Redirector
     {
-        return redirect('/register');
+        auth()->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/registration');
     }
 }
