@@ -1,4 +1,4 @@
-@props(['href' => null, 'message' => null])
+@props(['href' => null, 'message' => null, 'type' => null])
 
 @php
     $buttonClass = 'mt-6 w-full grid inline-flex justify-center items-center gap-x-3 text-center bg-blue-600 hover:bg-blue-700 border border-transparent text-sm lg:text-base text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4';
