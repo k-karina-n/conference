@@ -1,4 +1,4 @@
-<main class="my-8 mx-auto flex max-w-[85rem] flex-col px-4">
+<main class="mx-auto my-8 flex max-w-[85rem] flex-col px-4">
     <div class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
 
         <div class="grid gap-3 border-b border-gray-200 px-6 py-4 md:flex md:items-center md:justify-between">
@@ -17,7 +17,7 @@
                 @foreach ($users as $user)
                     <tr>
                         <x-table-item>
-                            <img src="/photos/{{ $user->photo }}" alt="photo" class="h-12 w-12 rounded-md">
+                            <img class="h-12 w-12 rounded-md" src="/photos/{{ $user->photo }}" alt="photo">
                         </x-table-item>
 
                         <x-table-item>
@@ -40,5 +40,9 @@
                 @endforeach
             </tbody>
         </table>
+
+        <div class="px-6 py-4">
+            {{ $users->links() }}
+        </div>
     </div>
 </main>
