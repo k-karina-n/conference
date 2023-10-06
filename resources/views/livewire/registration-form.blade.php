@@ -6,9 +6,7 @@
     <section class="mx-auto max-w-xl px-4 py-10 text-center sm:px-6 lg:px-8 lg:py-14">
         <form wire:submit="validateSecondStep" enctype="multipart/form-data" x-show="!$wire.get('registrationSuccess')">
             @csrf
-            <div x-show="$wire.get('firstStepVisible')" x-transition:enter="transition duration-200 transform ease-out"
-                x-transition:enter-start="scale-75" x-transition:leave="transition duration-100 transform ease-in"
-                x-transition:leave-end="opacity-0 scale-90">
+            <div x-show="$wire.get('firstStepVisible')">
                 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-6">
                     <x-input label="first name" data="first_name" />
                     <x-input label="last name" data="last_name" />
@@ -21,9 +19,7 @@
                 <x-button wire:click="validateFirstStep">Next Step</x-button>
             </div>
 
-            <div x-show="!$wire.get('firstStepVisible')" x-transition:enter="transition duration-200 transform ease-out"
-                x-transition:enter-start="scale-75" x-transition:leave="transition duration-100 transform ease-in"
-                x-transition:leave-end="opacity-0 scale-90">
+            <div x-show="!$wire.get('firstStepVisible')">
                 <x-input label="title" data="title" model="secondStep" />
                 <x-input label="description" data="description" model="secondStep" />
                 <x-input label="date" data="date" type="date" min="{{ date('Y-m-d') }}" model="secondStep" />
