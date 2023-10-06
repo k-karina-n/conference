@@ -6,7 +6,7 @@
 
             @auth
                 <div>
-                    <x-button>Add Speaker</x-button>
+                    <x-button wire:click="addUser">Add Speaker</x-button>
                 </div>
             @endauth
         </div>
@@ -42,10 +42,26 @@
                                 {{ $user->date }}
                             </span>
                         </x-table-item>
+
+                        @auth
+                            <x-table-item>
+                                <button wire:click="editUser({{ $user->id }})">Edit</button>
+                            </x-table-item>
+
+                            <x-table-item>
+                                <button wire:click="deleteUser({{ $user->id }})">Delete</button>
+                            </x-table-item>
+                        @endauth
                     </tr>
                 @endforeach
             </tbody>
         </table>
+
+        @if (session('status'))
+            <div class="fixed bottom-3 right-3 rounded-xl bg-blue-500 px-4 py-2 text-sm text-white">
+                {{ session('status') }}
+            </div>
+        @endif
 
         <div class="px-6 py-4">
             {{ $users->links() }}

@@ -16,4 +16,20 @@ class ShowList extends Component
             'users' => User::paginate(10),
         ]);
     }
+
+    public function addUser()
+    {
+    }
+
+    public function editUser(int $id)
+    {
+        dd($id);
+    }
+
+    public function deleteUser(int $id)
+    {
+        User::destroy($id);
+
+        return session()->flash('status', 'Speaker has been deleted.');
+    }
 }
