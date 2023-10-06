@@ -58,7 +58,8 @@
         </table>
 
         @if (session('status'))
-            <div class="fixed bottom-3 right-3 rounded-xl bg-blue-500 px-4 py-2 text-sm text-white">
+            <div class="fixed bottom-3 right-3 rounded-xl bg-blue-500 px-4 py-2 text-sm text-white"
+                x-data="{ show: true }" x-init="setTimeout(() => show = false, 2000)" x-show="show">
                 {{ session('status') }}
             </div>
         @endif
