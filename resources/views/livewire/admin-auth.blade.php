@@ -3,12 +3,12 @@
 
     @auth
         <section>
-            <h1 class="text-3xl font-bold text-gray-900">Would you like to leave?</h1>
+            <h1 class="mb-6 text-3xl font-bold text-gray-900">Would you like to leave?</h1>
             <x-button wire:click="logout">Log out</x-button>
         </section>
     @else
         <section>
-            <form wire:submit="login">
+            <form wire:submit="login" class="space-y-6">
                 <x-input label="email" data="email" model="form" />
                 <x-input label="password" data="password" type="password" model="form" />
                 @error('login')

@@ -6,7 +6,7 @@
     <section class="mx-auto max-w-xl px-4 py-10 text-center sm:px-6 lg:px-8 lg:py-14">
         <form wire:submit="validateSecondStep" enctype="multipart/form-data" x-show="!$wire.get('registrationSuccess')">
             @csrf
-            <div x-show="$wire.get('firstStepVisible')">
+            <div x-show="$wire.get('firstStepVisible')" class="space-y-6">
                 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-6">
                     <x-input label="first name" data="first_name" />
                     <x-input label="last name" data="last_name" />
@@ -19,7 +19,7 @@
                 <x-button wire:click="validateFirstStep">Next Step</x-button>
             </div>
 
-            <div x-show="!$wire.get('firstStepVisible')">
+            <div x-show="!$wire.get('firstStepVisible')" class="space-y-6">
                 <x-input label="title" data="title" model="secondStep" />
                 <x-input label="description" data="description" model="secondStep" />
                 <x-input label="date" data="date" type="date" min="{{ date('Y-m-d') }}" model="secondStep" />
@@ -32,7 +32,7 @@
         <div class="space-y-2" x-show="$wire.get('registrationSuccess')">
             <h3 class="text-xl font-bold text-gray-900">Share on social media if you want</h3>
 
-            <p class="text-sm font-medium text-gray-700">{{ $message }}</p>
+            <p class="mt-2 text-sm font-medium text-gray-700">{{ $message }}</p>
 
             <div class="grid grid-cols-1 gap-x-4 sm:grid-cols-2 lg:gap-x-6">
                 <x-button href="http://twitter.com/share?text=">Twitter</x-button>
