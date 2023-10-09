@@ -21,7 +21,7 @@ class UpdateUser extends Component
 
     public function render()
     {
-        return view('livewire.user-form', [
+        return view('livewire.update-user-form', [
             'user' => $this->user
         ]);
     }
