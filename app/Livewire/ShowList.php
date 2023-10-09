@@ -39,7 +39,7 @@ class ShowList extends Component
     /**
      * Redirect admin to the form to update a speaker.
      * 
-     * @param int $id
+     * @param int $id The ID of a user to update.
      * @return void
      */
     public function updateUser(int $id): void
@@ -50,7 +50,7 @@ class ShowList extends Component
     /**
      * Delete the specified user and flash a success message to the session.
      *
-     * @param int $id
+     * @param int $id The ID of a user to delete.
      * @return mixed
      */
     public function deleteUser(int $id): mixed

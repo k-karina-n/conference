@@ -34,7 +34,7 @@ class CreateUser extends Component
     }
 
     /**
-     * Save the form data and send flash message about a result.
+     * Save the new user data and report the result to the admin.
      *
      * @return Redirector
      */

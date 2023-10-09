@@ -34,7 +34,7 @@ class AdminAuth extends Component
      * @param Request $request
      * @return Redirector|void
      */
-    public function login(Request $request): Redirector
+    public function login(Request $request): mixed
     {
         $this->form->validate();
 

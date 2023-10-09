@@ -109,7 +109,7 @@ class Registration extends Component
     /**
      * Redirect user to the page with a list of speakers.
      * 
-     * @return Redirector.
+     * @return Redirector
      */
     public function showList(): Redirector
     {
