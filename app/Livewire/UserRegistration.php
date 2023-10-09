@@ -9,7 +9,7 @@ use App\Models\User;
 use Livewire\Features\SupportRedirects\Redirector;
 use Illuminate\View\View;
 
-class Registration extends Component
+class UserRegistration extends Component
 {
     /**
      * Trait for handling file uploads in the component.
