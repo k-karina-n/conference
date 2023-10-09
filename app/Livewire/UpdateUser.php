@@ -5,7 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\User;
 
-class EditUser extends Component
+class UpdateUser extends Component
 {
     public $user;
 

@@ -3,7 +3,6 @@
 namespace App\Livewire\Forms;
 
 use Livewire\Form;
-use Illuminate\Validation\Rule as ValidationRule;
 
 class UserDataForm extends Form
 {
