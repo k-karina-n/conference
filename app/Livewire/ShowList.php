@@ -23,7 +23,7 @@ class ShowList extends Component
 
     public function editUser(int $id)
     {
-        dd($id);
+        $this->redirect("/list/edit-user/{$id}");
     }
 
     public function deleteUser(int $id)

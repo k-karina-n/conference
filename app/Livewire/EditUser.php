@@ -9,7 +9,7 @@ class EditUser extends Component
 {
     public $user;
 
-    public function mount($id = 9)
+    public function mount(int $id)
     {
         $this->user = User::findOrFail($id);
     }

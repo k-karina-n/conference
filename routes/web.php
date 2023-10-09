@@ -19,5 +19,5 @@ use App\Livewire\EditUser;
 
 Route::get('/registration', Registration::class)->name('registration');
 Route::get('/list', ShowList::class)->name('list');
-Route::get('/list/edit-user', EditUser::class);
+Route::get('/list/edit-user/{id}', EditUser::class);
 Route::get('/admin', AdminAuth::class)->name('admin');
