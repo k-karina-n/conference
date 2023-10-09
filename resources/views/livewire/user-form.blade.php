@@ -2,6 +2,9 @@
     <form class="space-y-6 rounded-xl border border-gray-200 p-8 shadow-sm" wire:submit="save">
         <x-form-step-one />
         <x-form-step-two />
+        @error('save')
+            <p class="text-sm text-pink-600">{{ $message }}</p>
+        @enderror
         <x-button type="submit">Save speaker</x-button>
     </form>
 </main>
