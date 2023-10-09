@@ -36,19 +36,19 @@ class CreateUser extends Component
     /**
      * Save the new user data and report the result to the admin.
      *
-     * @return Redirector
+     * @return void
      */
-    public function save(): Redirector
+    public function save(): void
     {
         $this->validated();
 
         if (User::create($this->form->all())) {
             $this->form->storePhoto();
             session()->flash('status', 'Speaker has been added.');
-            return $this->redirect('/list');
+            $this->redirect('/list');
         }
 
-        return $this->addError('save', 'Failed to add speaker');
+        $this->addError('save', 'Failed to add speaker');
     }
 
     /**
