@@ -4,8 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use App\Livewire\Forms\FirstStepForm;
-use App\Livewire\Forms\SecondStepForm;
+use App\Livewire\Forms\UserDataForm;
 use App\Models\User;
 use Livewire\Features\SupportRedirects\Redirector;
 use Illuminate\View\View;
@@ -18,18 +17,11 @@ class Registration extends Component
     use WithFileUploads;
 
     /**
-     * The form for the first step of the registration process.
+     * The form to validate user data.
      *
-     * @var FirstStepForm The form object.
+     * @var UserDataForm The form object.
      */
-    public FirstStepForm $firstStep;
-
-    /**
-     * The form for the second step of the registration process.
-     *
-     * @var SecondStepForm The form object.
-     */
-    public SecondStepForm $secondStep;
+    public UserDataForm $form;
 
     /**
      * Whether the first step of the registration process is visible.
@@ -69,7 +61,7 @@ class Registration extends Component
      */
     public function validateFirstStep(): bool
     {
-        $this->firstStep->validate();
+        $this->form->validatePersonalData();
 
         return $this->firstStepVisible = false;
     }
@@ -81,7 +73,7 @@ class Registration extends Component
      */
     public function validateSecondStep(): void
     {
-        $this->secondStep->validate();
+        $this->form->validateConferenceData();
 
         $this->save();
     }
@@ -93,12 +85,9 @@ class Registration extends Component
      */
     public function save(): bool
     {
-        $this->firstStep->storePhoto();
+        $this->form->storePhoto();
 
-        User::create(array_merge(
-            $this->firstStep->all(),
-            $this->secondStep->all()
-        ));
+        User::create($this->form->all());
 
         $this->setMessage();
 
@@ -112,7 +101,7 @@ class Registration extends Component
      */
     public function setMessage(): string
     {
-        $title = $this->secondStep->title;
+        $title = $this->form->title;
 
         return $this->message = "Hey, I'm speaking on $title! To know more about it, visit conference.com";
     }
