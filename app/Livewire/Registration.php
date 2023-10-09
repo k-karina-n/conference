@@ -61,7 +61,7 @@ class Registration extends Component
      */
     public function validateFirstStep(): bool
     {
-        $this->form->validatePersonalData();
+        $this->form->setPersonalDataRules()->validate();
 
         return $this->firstStepVisible = false;
     }
@@ -73,7 +73,7 @@ class Registration extends Component
      */
     public function validateSecondStep(): void
     {
-        $this->form->validateConferenceData();
+        $this->form->setConferenceDataRules()->validate();
 
         $this->save();
     }
