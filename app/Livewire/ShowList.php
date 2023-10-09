@@ -17,11 +17,11 @@ class ShowList extends Component
         ]);
     }
 
-    public function addUser()
+    public function createUser()
     {
     }
 
-    public function editUser(int $id)
+    public function updateUser(int $id)
     {
         $this->redirect("/list/edit-user/{$id}");
     }

@@ -6,7 +6,7 @@
 
             @auth
                 <div>
-                    <x-button wire:click="addUser">Add Speaker</x-button>
+                    <x-button wire:click="createUser">Add Speaker</x-button>
                 </div>
             @endauth
         </div>
@@ -45,7 +45,7 @@
 
                         @auth
                             <x-table-item>
-                                <button wire:click="editUser({{ $user->id }})">Edit</button>
+                                <button wire:click="updateUser({{ $user->id }})">Edit</button>
                             </x-table-item>
 
                             <x-table-item>
