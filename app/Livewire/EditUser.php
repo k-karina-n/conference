@@ -16,7 +16,7 @@ class EditUser extends Component
 
     public function save()
     {
-        $this->user->save();
+        $this->user->update();
     }
 
     public function render()

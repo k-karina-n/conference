@@ -22,7 +22,7 @@ class UserFactory extends Factory
             'last_name' => fake()->name(),
             'phone' => '32405094590',
             'email' => fake()->unique()->safeEmail(),
-            'country' => fake()->country(),
+            'country' => 'Germany',
             'photo' => 'test.jpg',
             'title' => 'Conference Title',
             'description' => fake()->paragraph(),
