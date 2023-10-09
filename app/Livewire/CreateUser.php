@@ -7,22 +7,13 @@ use App\Models\User;
 
 class CreateUser extends Component
 {
-    public $user;
-
-    public function mount(int $id)
-    {
-        $this->user = User::findOrFail($id);
-    }
-
     public function save()
     {
-        $this->user->update();
+        dd('$connect');
     }
 
     public function render()
     {
-        return view('livewire.user-form', [
-            'user' => $this->user
-        ]);
+        return view('livewire.user-form');
     }
 }

@@ -9,11 +9,11 @@
             <x-input label="profile photo" data="photo" type="file" value="{{ $user->photo }}" />
         </div>
 
-        <x-input label="title" data="title" model="secondStep" value="{{ $user->title }}" />
-        <x-input label="description" data="description" model="secondStep">
+        <x-input label="title" data="title" value="{{ $user->title }}" />
+        <x-input label="description" data="description">
             {{ $user->description }}
         </x-input>
-        <x-input label="date" data="date" type="date" min="{{ date('Y-m-d') }}" model="secondStep" value="{{ $user->date }}" />
+        <x-input label="date" data="date" type="date" min="{{ date('Y-m-d') }}" value="{{ $user->date }}" />
 
         <x-button type="submit">Save speaker</x-button>
     </form>

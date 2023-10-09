@@ -19,6 +19,7 @@ class ShowList extends Component
 
     public function createUser()
     {
+        $this->redirect("/list/create-user");
     }
 
     public function updateUser(int $id)
