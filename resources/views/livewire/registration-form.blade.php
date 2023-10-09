@@ -5,16 +5,13 @@
 
     <section class="mx-auto max-w-xl px-4 py-10 text-center sm:px-6 lg:px-8 lg:py-14">
         <form wire:submit="validateSecondStep" enctype="multipart/form-data" x-show="!$wire.get('registrationSuccess')">
-            @csrf
             <div class="space-y-6" x-show="$wire.get('firstStepVisible')">
                 <x-form-step-one />
-
                 <x-button wire:click="validateFirstStep">Next Step</x-button>
             </div>
 
             <div class="space-y-6" x-show="!$wire.get('firstStepVisible')">
                 <x-form-step-two />
-
                 <x-button wire:click="$set('firstStepVisible', 'false')">Previous Step</x-button>
                 <x-button type="submit">Submit</x-button>
             </div>
