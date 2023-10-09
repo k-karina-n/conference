@@ -21,13 +21,11 @@ class UpdateUser extends Component
      */
     public UserDataForm $form;
 
-    public User $user;
-
     public function mount(int $id)
     {
-        $this->user = User::findOrFail($id);
+        $user = User::findOrFail($id);
 
-        $this->form->setUserData($this->user);
+        $this->form->setUserData($user);
     }
 
     public function save()
@@ -41,8 +39,6 @@ class UpdateUser extends Component
 
     public function render()
     {
-        return view('livewire.update-user-form', [
-            'user' => $this->user
-        ]);
+        return view('livewire.user-form');
     }
 }
