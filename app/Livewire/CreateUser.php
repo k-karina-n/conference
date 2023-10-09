@@ -23,11 +23,15 @@ class CreateUser extends Component
 
     public function save()
     {
-        $this->form->validatePersonalData();
-        $this->form->validateConferenceData();
-        $this->form->storePhoto();
+        $this->form
+            ->setPersonalDataRules()
+            ->setConferenceDataRules()
+            ->validate()
+            ->storePhoto();
 
-        User::create($this->form->all());
+        User::create(
+            $this->form->all()
+        );
 
         $this->redirect('/list');
 

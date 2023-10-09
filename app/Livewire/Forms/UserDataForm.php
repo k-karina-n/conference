@@ -26,29 +26,29 @@ class UserDataForm extends Form
 
     public $date;
 
-    public function validatePersonalData()
+    public function setPersonalDataRules()
     {
-        $this->rules = ([
+        $this->rules = [
             'first_name' => 'required|string|max:20',
             'last_name' => 'required|string|max:20',
             'phone' => 'required|max:18',
             'email' => 'required|email|unique:users,email',
             'country' => 'required',
             'photo' => 'required',
-        ]);
+        ];
 
-        return $this->validate();
+        return $this;
     }
 
-    public function validateConferenceData()
+    public function setConferenceDataRules()
     {
-        $this->rules = ([
+        $this->rules += [
             'title' => 'required',
             'description' => 'required|max:1000',
             'date' => 'required|after_or_equal:today'
-        ]);
+        ];
 
-        return $this->validate();
+        return $this;
     }
 
     public function storePhoto()
