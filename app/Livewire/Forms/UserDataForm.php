@@ -60,7 +60,20 @@ class UserDataForm extends Form
         $this->photo = $name;
     }
 
-    public function validationAttributes() 
+    public function setUserData($user)
+    {
+        $this->first_name = $user->first_name;
+        $this->last_name = $user->last_name;
+        $this->phone = $user->phone;
+        $this->email = $user->email;
+        $this->country = $user->country;
+        $this->photo = $user->photo;
+        $this->title = $user->title;
+        $this->description = $user->description;
+        $this->date = $user->date;
+    }
+
+    public function validationAttributes()
     {
         return [
             'first_name' => 'first name',
