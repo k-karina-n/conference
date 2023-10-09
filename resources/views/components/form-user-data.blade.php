@@ -3,6 +3,6 @@
     <x-input label="last name" data="last_name" />
     <x-input label="phone" data="phone" type="phone" x-mask="+99 (999) 999-9999" />
     <x-input label="email" data="email" type="email" />
-    <x-input label="country" data="country" />
+    <x-input label="country" data="country" tag="select" />
     <x-input label="profile photo" data="photo" type="file" />
 </div>
