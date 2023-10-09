@@ -11,14 +11,30 @@ use Illuminate\Http\Request;
 
 class AdminAuth extends Component
 {
+    /**
+     * The form to validate admin data.
+     *
+     * @var AdminAuthForm The form object.
+     */
     public AdminAuthForm $form;
 
+     /**
+     * Render the component view.
+     *
+     * @return View
+     */
     public function render(): View
     {
         return view('livewire.admin-auth');
     }
 
-    public function login(Request $request)
+    /**
+     * Validate provided admin data and attempt to authenticate an admin.
+     *
+     * @param Request $request
+     * @return Redirector|void
+     */
+    public function login(Request $request): Redirector
     {
         $this->form->validate();
 
@@ -30,6 +46,12 @@ class AdminAuth extends Component
         return $this->addError('login', 'Please, indicate a valid password');
     }
 
+    /**
+     * Logout the user.
+     *
+     * @param Request $request
+     * @return Redirector
+     */
     public function logout(Request $request): Redirector
     {
         auth()->logout();

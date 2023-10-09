@@ -8,8 +8,8 @@ use Livewire\Form;
 class AdminAuthForm extends Form
 {
     #[Rule('required|email|exists:admins,email', attribute: 'email')]
-    public $email;
+    public string $email;
 
     #[Rule('required', attribute: 'password')]
-    public $password;
+    public string $password;
 }

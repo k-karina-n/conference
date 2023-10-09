@@ -73,7 +73,7 @@ class UserDataForm extends Form
         $this->date = $user->date;
     }
 
-    public function validationAttributes()
+    public function validationAttributes(): array
     {
         return [
             'first_name' => 'first name',
