@@ -47,7 +47,7 @@ class AdminAuth extends Component
     }
 
     /**
-     * Logout the user.
+     * Logout an admin.
      *
      * @param Request $request
      * @return Redirector

@@ -109,7 +109,7 @@ class Registration extends Component
     /**
      * Redirect user to the page with a list of speakers.
      * 
-     * @return Livewire\Features\SupportRedirects\Redirector.
+     * @return Redirector.
      */
     public function showList(): Redirector
     {
