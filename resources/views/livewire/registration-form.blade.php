@@ -5,12 +5,12 @@
 
     <form wire:submit="validateSecondStep" enctype="multipart/form-data" x-show="!$wire.get('registrationSuccess')">
         <div class="space-y-6" x-show="$wire.get('firstStepVisible')">
-            <x-form-step-one />
+            <x-form-user-data />
             <x-button wire:click="validateFirstStep">Next Step</x-button>
         </div>
 
         <div class="space-y-6" x-show="!$wire.get('firstStepVisible')">
-            <x-form-step-two />
+            <x-form-conference-data />
             <x-button wire:click="$set('firstStepVisible', 'false')">Previous Step</x-button>
             <x-button type="submit">Submit</x-button>
         </div>
