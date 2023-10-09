@@ -28,7 +28,7 @@ class UserRegistration extends Component
      *
      * @var bool The visibility flag.
      */
-    public $firstStepVisible = true;
+    public $formUserDataVisible = true;
 
     /**
      * Whether the registration process was successful.
@@ -59,11 +59,11 @@ class UserRegistration extends Component
      * 
      * @return bool Set visibility of first step of registration form to false.
      */
-    public function validateFirstStep(): bool
+    public function validateUserData(): bool
     {
         $this->form->setPersonalDataRules()->validate();
 
-        return $this->firstStepVisible = false;
+        return $this->formUserDataVisible = false;
     }
 
     /**
@@ -71,7 +71,7 @@ class UserRegistration extends Component
      * 
      * @return void Call a method to save validated data from a registration from.
      */
-    public function validateSecondStep(): void
+    public function validateConferenceData(): void
     {
         $this->form->setConferenceDataRules()->validate();
 
