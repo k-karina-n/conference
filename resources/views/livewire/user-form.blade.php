@@ -3,6 +3,6 @@
         <x-form-step-one />
         <x-form-step-two />
 
-        <x-button type="submit">Save speaker</x-button>
+        <x-button type="submit">Add speaker</x-button>
     </form>
 </main>
