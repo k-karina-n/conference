@@ -32,7 +32,11 @@ class UpdateUser extends Component
 
     public function save()
     {
-        $this->user->update();
+        $this->user->update($this->form->all());
+
+        $this->redirect('/list');
+
+        return session()->flash('status', 'Speaker has been updated.');
     }
 
     public function render()
