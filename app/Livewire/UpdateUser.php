@@ -2,33 +2,18 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
-use Livewire\WithFileUploads;
-use App\Livewire\Forms\UserDataForm;
+use App\Livewire\Objects\UserObject;
 use Illuminate\View\View;
 use App\Models\User;
-use Illuminate\Support\Facades\Route;
 
-class UpdateUser extends Component
+class UpdateUser extends UserObject
 {
-    /**
-     * Trait for handling file uploads in the component.
-     */
-    use WithFileUploads;
-
     /**
      * Contain specific user data.
      * 
      * @var User $user User object.
      */
     public User $user;
-
-    /**
-     * The form to validate user data.
-     *
-     * @var UserDataForm The form object.
-     */
-    public UserDataForm $form;
 
     /**
      * Find a user with a give ID and sets user data for the form.
@@ -67,35 +52,5 @@ class UpdateUser extends Component
         }
 
         return $this->addError('save', 'Failed to update a speaker');
-    }
-
-    /**
-     * Call method from UserDataForm to get user data from session.
-     * 
-     * @return mixed
-     */
-    public function getSessionData(): mixed
-    {
-        if (Route::currentRouteName('edit-user')) {
-            return $this;
-        }
-
-        $this->form->getSessionData();
-    }
-
-    /**
-     * Call method from UserDataForm to save user data to session.
-     * 
-     * @param string $name Input name
-     * @return void
-     */
-    public function updateSessionData(string $name): void
-    {
-        $this->form->updateSessionData($name);
-    }
-
-    public function clearSessionData(): void
-    {
-        $this->form->clearSessionData();
     }
 }

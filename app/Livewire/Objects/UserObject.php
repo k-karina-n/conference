@@ -5,6 +5,7 @@ namespace App\Livewire\Objects;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Livewire\Forms\UserDataForm;
+use Illuminate\Support\Facades\Route;
 
 abstract class UserObject extends Component
 {
@@ -23,10 +24,14 @@ abstract class UserObject extends Component
     /**
      * Call method from UserDataForm to get user data from session.
      * 
-     * @return void
+     * @return mixed
      */
-    public function getSessionData(): void
+    public function getSessionData(): mixed
     {
+        if (Route::currentRouteName('edit-user')) {
+            return $this;
+        }
+
         $this->form->getSessionData();
     }
 
