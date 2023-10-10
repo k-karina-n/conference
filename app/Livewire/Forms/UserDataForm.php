@@ -104,11 +104,23 @@ class UserDataForm extends Form
         $this->date = $user->date;
     }
 
+    /**
+     * Save user data from input to a cookie.
+     * 
+     * @param string $name Input name
+     * @return void
+     */
     public function updateCookie(string $name): void
     {
         Cookie::queue($name, $this->$name);
     }
 
+    /**
+     * Retrieve user data from cookies and assigns it to the corresponding properties of a current component.
+     * 
+     * @param string $name Input name
+     * @return void
+     */
     public function getCookie(): void
     {
         $values = [

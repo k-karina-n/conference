@@ -54,11 +54,22 @@ class UserRegistration extends Component
         return view('livewire.registration-form');
     }
 
+    /**
+     * Call method from UserDataForm to get user data from cookies.
+     * 
+     * @return void
+     */
     public function getCookie(): void
     {
         $this->form->getCookie();
     }
 
+    /**
+     * Call method from UserDataForm to save user data to cookies.
+     * 
+     * @param string $name Input name
+     * @return void
+     */
     public function updateCookie(string $name): void
     {
         $this->form->updateCookie($name);
