@@ -29,7 +29,7 @@ class UserRegistration extends Component
      *
      * @var bool The visibility flag.
      */
-    public $formUserDataVisible = true;
+    public $formUserDataVisible;
 
     /**
      * Whether the registration process was successful.
@@ -44,6 +44,11 @@ class UserRegistration extends Component
      * @var string The message string.
      */
     public string $message;
+
+    public function mount()
+    {
+        $this->formUserDataVisible = session()->get('formUserDataVisible') ?? true;
+    }
 
     /**
      * Return the view for the main page with registration form. 
@@ -77,19 +82,19 @@ class UserRegistration extends Component
     }
 
     /**
-     * Validate data from the first step of registration form.
+     * Validate user data from the registration form.
      * 
-     * @return bool Set visibility of first step of registration form to false.
+     * @return void Set visibility of first step of registration form to false and save it to session.
      */
-    public function validateUserData(): bool
+    public function validateUserData(): void
     {
         $this->form->setPersonalDataRules()->validate();
 
-        return $this->formUserDataVisible = false;
+        session()->put('formUserDataVisible', $this->formUserDataVisible = false);
     }
 
     /**
-     * Validate data from the second step of registration form.
+     * Validate conference data from the registration form.
      * 
      * @return void Call a method to save validated data from a registration from.
      */
@@ -135,7 +140,7 @@ class UserRegistration extends Component
      */
     public function showList(): Redirector
     {
-        Session::flush();
+        session()->flush();
 
         return redirect('/list');
     }
