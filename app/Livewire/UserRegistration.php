@@ -54,6 +54,16 @@ class UserRegistration extends Component
         return view('livewire.registration-form');
     }
 
+    public function getCookie(): void
+    {
+        $this->form->getCookie();
+    }
+
+    public function updateCookie(string $name): void
+    {
+        $this->form->updateCookie($name);
+    }
+
     /**
      * Validate data from the first step of registration form.
      * 

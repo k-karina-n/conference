@@ -10,7 +10,7 @@
 
     @if ($tag)
         <{{ $tag }} class="{{ $class }}" name="{{ $name }}"
-            wire:model="form.{{ $name }}" {{ $attributes->merge() }}>
+            wire:model="form.{{ $name }}" wire:change="updateCookie('{{ $name }}')" {{ $attributes->merge() }}>
             @if ($tag == 'select')
                 @foreach ($countries as $country)
                     <option>{{ $country }}</option>
@@ -19,7 +19,7 @@
         </{{ $tag }}>
     @else
         <input class="{{ $class }}" name="{{ $name }}" type="{{ $type ?? 'text' }}"
-                wire:model.lazy="form.{{ $name }}" {{ $attributes->merge() }}>
+                wire:model.lazy="form.{{ $name }}" wire:change="updateCookie('{{ $name }}')" {{ $attributes->merge() }}>
     @endif
 
     @error("form.$name")

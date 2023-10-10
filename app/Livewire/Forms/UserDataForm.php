@@ -4,6 +4,7 @@ namespace App\Livewire\Forms;
 
 use Livewire\Form;
 use App\Models\User;
+use Illuminate\Support\Facades\Cookie;
 
 class UserDataForm extends Form
 {
@@ -84,7 +85,7 @@ class UserDataForm extends Form
         $this->photo = $name;
     }
 
-     /**
+    /**
      * Set user data to the form from a User object.
      *
      * @param User $user
@@ -101,6 +102,30 @@ class UserDataForm extends Form
         $this->title = $user->title;
         $this->description = $user->description;
         $this->date = $user->date;
+    }
+
+    public function updateCookie(string $name): void
+    {
+        Cookie::queue($name, $this->$name);
+    }
+
+    public function getCookie(): void
+    {
+        $values = [
+            'first_name',
+            'last_name',
+            'phone',
+            'email',
+            'country',
+            'photo',
+            'title',
+            'description',
+            'date'
+        ];
+
+        foreach ($values as $value) {
+            $this->$value = Cookie::get("$value");
+        }
     }
 
     /**
