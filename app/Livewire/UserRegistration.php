@@ -2,13 +2,27 @@
 
 namespace App\Livewire;
 
-use App\Livewire\Objects\UserObject;
+use Livewire\Component;
+use Livewire\WithFileUploads;
+use App\Livewire\Forms\UserDataForm;
 use App\Models\User;
 use Livewire\Features\SupportRedirects\Redirector;
 use Illuminate\View\View;
 
-class UserRegistration extends UserObject
+class UserRegistration extends Component
 {
+    /**
+     * Trait for handling file uploads in the component.
+     */
+    use WithFileUploads;
+
+    /**
+     * The form to validate user data.
+     *
+     * @var UserDataForm The form object.
+     */
+    public UserDataForm $form;
+
     /**
      * Whether the first step of the registration process is visible.
      *
@@ -112,5 +126,36 @@ class UserRegistration extends UserObject
         $this->form->clearSessionData();
 
         return redirect('/list');
+    }
+
+    /**
+     * Call method from UserDataForm to get user data from session.
+     * 
+     * @return void
+     */
+    public function getSessionData(): void
+    {
+        $this->form->getSessionData();
+    }
+
+    /**
+     * Call method from UserDataForm to save user data to session.
+     * 
+     * @param string $name Input name
+     * @return void
+     */
+    public function updateSessionData(string $name): void
+    {
+        $this->form->updateSessionData($name);
+    }
+
+    /**
+     * Call method from UserDataForm to clear session data.
+     * 
+     * @return void
+     */
+    public function clearSessionData(): void
+    {
+        $this->form->clearSessionData();
     }
 }
