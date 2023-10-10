@@ -21,5 +21,5 @@ use App\Livewire\UpdateUser;
 Route::get('/registration', UserRegistration::class)->name('registration');
 Route::get('/list', ShowList::class)->name('list');
 Route::get('/list/create-user', CreateUser::class);
-Route::get('/list/edit-user/{id}', UpdateUser::class);
+Route::get('/list/edit-user/{id}', UpdateUser::class)->name('edit-user');
 Route::get('/admin', AdminAuth::class)->name('admin');

@@ -7,6 +7,7 @@ use Livewire\WithFileUploads;
 use App\Livewire\Forms\UserDataForm;
 use Illuminate\View\View;
 use App\Models\User;
+use Illuminate\Support\Facades\Route;
 
 class UpdateUser extends Component
 {
@@ -60,10 +61,41 @@ class UpdateUser extends Component
     public function save(): mixed
     {
         if ($this->user->update($this->form->all())) {
-            session()->flash('status', 'Speaker has been updated.');
-            return $this->redirect('/list');
+            $this->redirect('/list');
+            session()->now('status', 'Speaker has been updated.');
+            $this->clearSessionData();
         }
 
         return $this->addError('save', 'Failed to update a speaker');
+    }
+
+    /**
+     * Call method from UserDataForm to get user data from session.
+     * 
+     * @return mixed
+     */
+    public function getSessionData(): mixed
+    {
+        if (Route::currentRouteName('edit-user')) {
+            return $this;
+        }
+
+        $this->form->getSessionData();
+    }
+
+    /**
+     * Call method from UserDataForm to save user data to session.
+     * 
+     * @param string $name Input name
+     * @return void
+     */
+    public function updateSessionData(string $name): void
+    {
+        $this->form->updateSessionData($name);
+    }
+
+    public function clearSessionData(): void
+    {
+        $this->form->clearSessionData();
     }
 }
