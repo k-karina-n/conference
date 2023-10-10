@@ -4,5 +4,4 @@
     <x-input label="phone" name="phone" type="phone" x-mask="+99 (999) 999-9999" />
     <x-input label="email" name="email" type="email" />
     <x-input label="country" name="country" tag="select" />
-    <x-input label="profile photo" name="photo" type="file" />
 </div>

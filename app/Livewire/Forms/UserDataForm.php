@@ -25,13 +25,13 @@ class UserDataForm extends Form
     public $phone;
     public $email;
     public $country;
-    public $photo;
 
     /**
      * Conference data fields.
      *
-     * @var string
+     * @var mixed
      */
+    public $photo;
     public $title;
     public $description;
     public $date;
@@ -49,7 +49,6 @@ class UserDataForm extends Form
             'phone' => 'required|max:18',
             'email' => 'required|email|unique:users,email',
             'country' => 'required',
-            'photo' => 'required',
         ];
 
         return $this;
@@ -63,6 +62,7 @@ class UserDataForm extends Form
     public function setConferenceDataRules(): UserDataForm
     {
         $this->rules += [
+            'photo' => 'required',
             'title' => 'required',
             'description' => 'required|max:1000',
             'date' => 'required|after_or_equal:today'
