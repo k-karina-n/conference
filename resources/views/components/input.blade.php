@@ -1,4 +1,4 @@
-@props(['name' => null, 'label' => null, 'type' => null, 'tag' => null])
+@props(['name' => null, 'label' => null, 'type' => null, 'tag' => null, 'admin' => false])
 
 @php
     $class = 'py-3 px-4 block w-full rounded-md border border-gray-200 rounded-md text-sm hover:border-blue-500 focus:outline-none focus:border-blue-500 focus:ring-blue-500 focus:ring-1';
@@ -16,11 +16,13 @@
                     <option>{{ $country }}</option>
                 @endforeach
             @endif
-            </{{ $tag }}>
-        @else
-            <input class="{{ $class }}" name="{{ $name }}" type="{{ $type ?? 'text' }}"
-                wire:model.lazy="form.{{ $name }}" wire:change="updateSessionData('{{ $name }}')"
-                {{ $attributes->merge() }}>
+        </{{ $tag }}>
+    @else
+        <input class="{{ $class }}" name="{{ $name }}" type="{{ $type ?? 'text' }}"
+                wire:model.lazy="form.{{ $name }}" 
+                @if(!$admin) wire:change="updateSessionData('{{ $name }}')" @endif
+                {{ $attributes->merge() }}
+        >
     @endif
 
     @error("form.$name")
