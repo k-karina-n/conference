@@ -9,17 +9,18 @@
     <label class="flex text-sm font-medium capitalize text-gray-700" for="{{ $name }}">{{ $label }}</label>
 
     @if ($tag)
-        <{{ $tag }} class="{{ $class }}" name="{{ $name }}"
-            wire:model="form.{{ $name }}" wire:change="updateCookie('{{ $name }}')" {{ $attributes->merge() }}>
+        <{{ $tag }} class="{{ $class }}" name="{{ $name }}" wire:model="form.{{ $name }}"
+            wire:change="updateCookie('{{ $name }}')" {{ $attributes->merge() }}>
             @if ($tag == 'select')
                 @foreach ($countries as $country)
                     <option>{{ $country }}</option>
                 @endforeach
             @endif
-        </{{ $tag }}>
-    @else
-        <input class="{{ $class }}" name="{{ $name }}" type="{{ $type ?? 'text' }}"
-                wire:model.lazy="form.{{ $name }}" wire:change="updateCookie('{{ $name }}')" {{ $attributes->merge() }}>
+            </{{ $tag }}>
+        @else
+            <input class="{{ $class }}" name="{{ $name }}" type="{{ $type ?? 'text' }}"
+                wire:model.lazy="form.{{ $name }}" wire:change="updateCookie('{{ $name }}')"
+                {{ $attributes->merge() }}>
     @endif
 
     @error("form.$name")

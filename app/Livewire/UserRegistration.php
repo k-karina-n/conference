@@ -8,6 +8,7 @@ use App\Livewire\Forms\UserDataForm;
 use App\Models\User;
 use Livewire\Features\SupportRedirects\Redirector;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Session;
 
 class UserRegistration extends Component
 {
@@ -128,12 +129,14 @@ class UserRegistration extends Component
     }
 
     /**
-     * Redirect user to the page with a list of speakers.
+     * Redirect user to the page with a list of speakers and clear session data after registration.
      * 
      * @return Redirector
      */
     public function showList(): Redirector
     {
+        Session::flush();
+
         return redirect('/list');
     }
 }

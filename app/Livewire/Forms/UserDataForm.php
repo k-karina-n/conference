@@ -4,7 +4,7 @@ namespace App\Livewire\Forms;
 
 use Livewire\Form;
 use App\Models\User;
-use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Session;
 
 class UserDataForm extends Form
 {
@@ -112,7 +112,7 @@ class UserDataForm extends Form
      */
     public function updateCookie(string $name): void
     {
-        Cookie::queue($name, $this->$name);
+        Session::put($name, $this->$name);
     }
 
     /**
@@ -136,7 +136,7 @@ class UserDataForm extends Form
         ];
 
         foreach ($values as $value) {
-            $this->$value = Cookie::get("$value");
+            $this->$value = Session::get("$value");
         }
     }
 
