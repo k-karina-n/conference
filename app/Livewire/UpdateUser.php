@@ -80,7 +80,7 @@ class UpdateUser extends Component
             ->validate();
     }
 
-    public function getSessionData()
+    public function getSessionData(): void
     {
         $this->form->setUserData($this->user);
     }
