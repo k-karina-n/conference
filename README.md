@@ -50,7 +50,7 @@ vim .env
 php artisan migrate
 ```
 
-**Seed your db** 
+**Seed your db with user and admin data** 
 ```
 php artisan db:seed
 ```
@@ -65,3 +65,7 @@ npm run dev
 ```
 php artisan serve
 ```
+
+### Admin Access
+**email** admin@conference.com
+**password** adminadmin
