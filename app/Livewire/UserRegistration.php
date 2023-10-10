@@ -8,7 +8,6 @@ use App\Livewire\Forms\UserDataForm;
 use App\Models\User;
 use Livewire\Features\SupportRedirects\Redirector;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Session;
 
 class UserRegistration extends Component
 {
@@ -29,14 +28,14 @@ class UserRegistration extends Component
      *
      * @var bool The visibility flag.
      */
-    public $formUserDataVisible;
+    public bool $formUserDataVisible;
 
     /**
      * Whether the registration process was successful.
      *
      * @var bool The success flag.
      */
-    public $registrationSuccess = false;
+    public bool $registrationSuccess = false;
 
     /**
      * The message to display to the user.
@@ -45,7 +44,12 @@ class UserRegistration extends Component
      */
     public string $message;
 
-    public function mount()
+    /**
+     * Set visibility flag to a component property.
+     *
+     * @return void
+     */
+    public function mount(): void
     {
         $this->formUserDataVisible = session()->get('formUserDataVisible') ?? true;
     }
