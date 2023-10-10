@@ -105,7 +105,7 @@ class UserDataForm extends Form
     }
 
     /**
-     * Save user data from input to a cookie.
+     * Save user data from input to a session.
      * 
      * @param string $name Input name
      * @return void
@@ -116,9 +116,8 @@ class UserDataForm extends Form
     }
 
     /**
-     * Retrieve user data from cookies and assigns it to the corresponding properties of a current component.
+     * Retrieve user data from session and assigns it to the corresponding properties of a current component.
      * 
-     * @param string $name Input name
      * @return void
      */
     public function getSessionData(): void
