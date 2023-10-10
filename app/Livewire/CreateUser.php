@@ -5,7 +5,6 @@ namespace App\Livewire;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Livewire\Forms\UserDataForm;
-use Livewire\Features\SupportRedirects\Redirector;
 use App\Models\User;
 use Illuminate\View\View;
 
@@ -86,8 +85,12 @@ class CreateUser extends Component
         $this->form->updateSessionData($name);
     }
 
+    /**
+     * Call method from UserDataForm to clear session data.
+     * 
+     * @return void
+     */
     public function clearSessionData(): void
     {
         $this->form->clearSessionData();
-    }
-}
+    }}
