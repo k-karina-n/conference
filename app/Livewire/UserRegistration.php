@@ -65,7 +65,7 @@ class UserRegistration extends Component
     }
 
     /**
-     * Call method from UserDataForm to get user data from cookies.
+     * Call method from UserDataForm to get user data from session.
      * 
      * @return void
      */
@@ -75,7 +75,7 @@ class UserRegistration extends Component
     }
 
     /**
-     * Call method from UserDataForm to save user data to cookies.
+     * Call method from UserDataForm to save user data to session.
      * 
      * @param string $name Input name
      * @return void
@@ -144,7 +144,7 @@ class UserRegistration extends Component
      */
     public function showList(): Redirector
     {
-        session()->flush();
+        $this->form->clearSessionData();
 
         return redirect('/list');
     }

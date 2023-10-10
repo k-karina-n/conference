@@ -44,8 +44,9 @@ class CreateUser extends Component
 
         if (User::create($this->form->all())) {
             $this->form->storePhoto();
-            session()->flash('status', 'Speaker has been added.');
             $this->redirect('/list');
+            $this->clearSessionData();
+            session()->now('status', 'Speaker has been added.');
         }
 
         $this->addError('save', 'Failed to add speaker');
@@ -62,5 +63,31 @@ class CreateUser extends Component
             ->setPersonalDataRules()
             ->setConferenceDataRules()
             ->validate();
+    }
+
+    /**
+     * Call method from UserDataForm to get user data from session.
+     * 
+     * @return void
+     */
+    public function getSessionData(): void
+    {
+        $this->form->getSessionData();
+    }
+
+    /**
+     * Call method from UserDataForm to save user data to session.
+     * 
+     * @param string $name Input name
+     * @return void
+     */
+    public function updateSessionData(string $name): void
+    {
+        $this->form->updateSessionData($name);
+    }
+
+    public function clearSessionData(): void
+    {
+        $this->form->clearSessionData();
     }
 }

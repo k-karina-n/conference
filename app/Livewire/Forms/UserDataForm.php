@@ -139,6 +139,23 @@ class UserDataForm extends Form
         }
     }
 
+    public function clearSessionData(): void
+    {
+        $values = [
+            'first_name',
+            'last_name',
+            'phone',
+            'email',
+            'country',
+            'photo',
+            'title',
+            'description',
+            'date'
+        ];
+
+        session()->forget($values);
+    }
+
     /**
      * Return validation attributes for error messages.
      *
