@@ -10,16 +10,16 @@ class AdminAuthForm extends Form
     /**
      * Admin email to be validated.
      *
-     * @var string
+     * @var mixed
      */
     #[Rule('required|email|exists:admins,email', attribute: 'email')]
-    public string $email;
+    public $email;
 
     /**
      * Admin password to be validated.
      *
-     * @var string
+     * @var mixed
      */
     #[Rule('required', attribute: 'password')]
-    public string $password;
+    public $password;
 }

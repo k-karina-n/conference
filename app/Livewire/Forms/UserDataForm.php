@@ -18,7 +18,7 @@ class UserDataForm extends Form
     /**
      * User personal data fields.
      *
-     * @var string
+     * @var mixed
      */
     public $first_name;
     public $last_name;
