@@ -2,12 +2,26 @@
 
 namespace App\Livewire;
 
-use App\Livewire\Objects\UserObject;
+use Livewire\Component;
+use Livewire\WithFileUploads;
+use App\Livewire\Forms\UserDataForm;
 use Illuminate\View\View;
 use App\Models\User;
 
-class UpdateUser extends UserObject
+class UpdateUser extends Component
 {
+    /**
+     * Trait for handling file uploads in the component.
+     */
+    use WithFileUploads;
+
+    /**
+     * The form to validate user data.
+     *
+     * @var UserDataForm The form object.
+     */
+    public UserDataForm $form;
+
     /**
      * Contain specific user data.
      * 
@@ -24,8 +38,6 @@ class UpdateUser extends UserObject
     public function mount(int $id): void
     {
         $this->user = User::findOrFail($id);
-
-        $this->form->setUserData($this->user);
     }
 
     /**
@@ -45,12 +57,36 @@ class UpdateUser extends UserObject
      */
     public function save(): mixed
     {
+        $this->validated();
+
         if ($this->user->update($this->form->all())) {
             $this->redirect('/list');
-            session()->now('status', 'Speaker has been updated.');
-            $this->clearSessionData();
+            session()->flash('status', 'Speaker has been updated.');
         }
 
         return $this->addError('save', 'Failed to update a speaker');
+    }
+
+    /**
+     * Set validate rules for user form and validate data.
+     *
+     * @return array The validated user data.
+     */
+    public function validated(): array
+    {
+        return $this->form
+            ->setPersonalDataRules()
+            ->setConferenceDataRules()
+            ->validate();
+    }
+
+    public function getSessionData()
+    {
+        $this->form->setUserData($this->user);
+    }
+
+    public function updateSessionData(string $name): void
+    {
+        $this->form->updateSessionData($name);
     }
 }
