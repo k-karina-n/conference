@@ -67,5 +67,7 @@ php artisan serve
 ```
 
 ### Admin Access
-**email** admin@conference.com
-**password** adminadmin
+```
+'email' => 'admin@conference.com'
+'password' => 'adminadmin'
+```
