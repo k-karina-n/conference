@@ -110,7 +110,7 @@ class UserDataForm extends Form
      * @param string $name Input name
      * @return void
      */
-    public function updateCookie(string $name): void
+    public function updateSessionData(string $name): void
     {
         Session::put($name, $this->$name);
     }
@@ -121,7 +121,7 @@ class UserDataForm extends Form
      * @param string $name Input name
      * @return void
      */
-    public function getCookie(): void
+    public function getSessionData(): void
     {
         $values = [
             'first_name',

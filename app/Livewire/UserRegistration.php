@@ -60,9 +60,9 @@ class UserRegistration extends Component
      * 
      * @return void
      */
-    public function getCookie(): void
+    public function getSessionData(): void
     {
-        $this->form->getCookie();
+        $this->form->getSessionData();
     }
 
     /**
@@ -71,9 +71,9 @@ class UserRegistration extends Component
      * @param string $name Input name
      * @return void
      */
-    public function updateCookie(string $name): void
+    public function updateSessionData(string $name): void
     {
-        $this->form->updateCookie($name);
+        $this->form->updateSessionData($name);
     }
 
     /**
